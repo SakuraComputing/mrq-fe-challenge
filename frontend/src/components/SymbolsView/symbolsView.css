@@ -1,19 +1,27 @@
 .symbolsView__chart {
-  padding: 12px;
-  width: 20%;
+  padding: 1em;
 }
 
 .symbolsView {
-  display: grid;
-  grid-template-columns: 70em 15em;
+  display: flex;
 }
 
 .symbolsView__cards {
-  width: 80%;
+  flex-basis: 70%;
 }
 
 .symbolGrid {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 15em);
+  display: flex;
+  flex-flow: wrap;
+}
+
+@media(max-width: 1072px) {
+  .symbolsView {
+    flex-direction: column-reverse;
+    flex-basis: 100%;
+  }
+  .symbolsView__chart {
+    width: 70%;
+  }  
+
 }
