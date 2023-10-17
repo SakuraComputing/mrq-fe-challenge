@@ -15,7 +15,7 @@ const SymbolsGrid = ({ onSymbolClick }: SymbolsGridProps) => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='symbolGrid'>
       {stockSymbols.map((id, i) => (
         <SymbolCard price={prices[id]} onClick={onSymbolClick} key={i} id={id} />
       ))}

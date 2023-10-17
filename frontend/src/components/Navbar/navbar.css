@@ -1,3 +1,29 @@
-nav {
-  background: white;
+.navbar {
+  background: var(--colorDark);
+  margin: 2em 0;
+  border-radius: .2em;
 }
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.list-item {
+  margin: 0 1em;
+  display: flex;
+  
+}
+
+.list-link {
+  color: var(--colorWhite);
+}
+
+.list-link-active {
+  color: var(--colorDark);
+  background-color: var(--colorPrimary);
+  border-radius:  .2em;
+}
+
