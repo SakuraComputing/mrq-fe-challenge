@@ -11,6 +11,12 @@ type SymbolCardProps = {
   price: number;
 };
 
+function roundToDollars(value: number) { 
+  return "$ " + 
+      value.toFixed(0)
+          .replace(/(\d)(?=(\d{3})+$)/g, "$1,"); 
+}
+
 const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
   const { trend, industry, companyName, marketCap } = useAppSelector(
     (state) => state.stocks.entities[id]
@@ -21,14 +27,31 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
 
   return (
     <div onClick={handleOnClick} className="symbolCard">
-      <div>
-        {id} - {trend}
+      <div className='header'>
+        {id}
+        {trend && trend === 'UP'
+          ? <img className='stockUp' src="/src/assets/up.png" alt="stockUp" /> : <img className='stockDown' src="/src/assets/down.png" alt="stockDown" />
+        }
       </div>
-      <div>Price:</div>
-      <div>{price || 0} </div>
-      <CompanyIcon /> <div>{companyName}</div>
-      <IndustryLogo /> <div>{industry}</div>
-      <MarketCapIcon /> <div>{marketCap}</div>
+      <div className='container'>
+        <div className='price'>
+          <div className='price__text' >Price:</div>
+          <div className='price__value'>{roundToDollars(price || 0)} </div>
+        </div>
+        <div className='icon__group__container'>
+          <div className='icon__container'>
+            <CompanyIcon />{companyName}
+          </div>
+          <div className='icon__container'>
+            <div><IndustryLogo /></div> 
+            <div>{industry}</div>
+          </div>
+          <div className='icon__container'>
+            <div><MarketCapIcon /></div>
+            <div>{marketCap}</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
