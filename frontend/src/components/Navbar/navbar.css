@@ -1,7 +1,6 @@
 .navbar {
   background: var(--colorDark);
-  margin: 2em 0;
-  border-radius: .2em;
+  border-radius: .3em;
 }
 
 .list {
@@ -9,12 +8,12 @@
   padding: 0;
   display: flex;
   justify-content: flex-start;
+  font-size: 1.5em;
 }
 
 .list-item {
-  margin: 0 1em;
+  margin-right: 1.5em;
   display: flex;
-  
 }
 
 .list-link {
@@ -25,5 +24,9 @@
   color: var(--colorDark);
   background-color: var(--colorPrimary);
   border-radius:  .2em;
+  padding: 0.25em 1em;
+  margin-top: -5%;
+  margin-bottom: -3%;
+  text-align: center;
 }
 

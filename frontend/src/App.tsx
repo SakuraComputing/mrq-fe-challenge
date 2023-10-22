@@ -4,8 +4,8 @@ import Router from '@/router';
 
 function App() {
   return (
-    <div className="App">
-      <h2>STONKS</h2>
+    <div className="app">
+      <h2 className='app-title'>STONKS</h2>
       <Navbar />
       <Router />
     </div>
