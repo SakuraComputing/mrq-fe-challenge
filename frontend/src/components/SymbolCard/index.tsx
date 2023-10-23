@@ -21,17 +21,17 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
   const { trend, industry, companyName, marketCap } = useAppSelector(
     (state) => state.stocks.entities[id]
   );
+
   const handleOnClick = useCallback(() => {
     onClick(id);
   }, [id]);
 
   return (
-    <div onClick={handleOnClick} className="symbolCard">
+    <div onClick={handleOnClick} className={`symbolCard ${trend && 'symbolCard__shake'}`}>
       <div className='header'>
         {id}
-        {trend && trend === 'UP'
-          ? <img className='stockUp' src="/src/assets/up.png" alt="stockUp" /> : <img className='stockDown' src="/src/assets/down.png" alt="stockDown" />
-        }
+        {trend === 'UP' && <img className='stockUp' src="/src/assets/up.png" alt="stockUp" />}
+        {trend === 'DOWN' && <img className='stockDown' src="/src/assets/down.png" alt="stockDown" />}
       </div>
       <div className='container'>
         <div className='price'>
@@ -48,7 +48,7 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
           </div>
           <div className='icon__container'>
             <div><MarketCapIcon /></div>
-            <div>{marketCap}</div>
+            <div>{roundToDollars(marketCap)}</div>
           </div>
         </div>
       </div>
